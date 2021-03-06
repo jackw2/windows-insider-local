@@ -5,7 +5,7 @@
 
 Clear-Host
 
-$scriptVersion = "0.2"
+$scriptVersion = "v0.2"
 $scriptDate = "(2021 March 6)        "
 
 #check windows version before running
@@ -14,7 +14,7 @@ $version = (Get-ItemProperty `
 
 "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
 "┃                                                                           ┃"
-"┃     Windows Insider Local v$scriptVersion $scriptDate                     ┃"
+"┃     Windows Insider Local $scriptVersion $scriptDate                     ┃"
 "┃     by Jack Wesolowski @jackw2                                            ┃"
 "┃                                                                           ┃"
 "┃     github.com/jackw2/windows-insider-local                               ┃"
@@ -50,7 +50,7 @@ Clear-Host
 
 "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓"
 "┃                                                                           ┃"
-"┃     Windows Insider Local v$scriptVersion $scriptDate                     ┃"
+"┃     Windows Insider Local $scriptVersion $scriptDate                     ┃"
 "┃     by Jack Wesolowski @jackw2                                            ┃"
 "┃                                                                           ┃"
 "┃     Which channel should I pick?                                          ┃"
@@ -108,7 +108,7 @@ function Edit-Insider-Builds {
     New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\Applicability" -ItemType String -Name ContentType -Value "$content" -Force -EA SilentlyContinue
     New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\Applicability" -ItemType String -Name BranchName -Value "external" -Force -EA SilentlyContinue
     New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\Applicability" -ItemType String -Name Ring -Value "$ring" -Force -EA SilentlyContinue
-    New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\UI\Strings" -ItemType String -Name StickyXaml -Value "<StackPanel xmlns=`"`"`"http://schemas.microsoft.com/winfx/2006/xaml/presentation`"`"`"><TextBlock Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`">You are now receiving Windows Insider builds using the Windows Insider for Local Accounts Script v$scriptVersion. To stop receiving Insider builds, use the script again and select reset. <Hyperlink NavigateUri=`"`"`"https://github.com/jackw2/windows-insider-local`"`"`" TextDecorations=`"`"`"None`"`"`">Download the script here</Hyperlink></TextBlock><TextBlock Text=`"`"`"Applied configuration`"`"`" Margin=`"`"`"0,20,0,10`"`"`" Style=`"`"`"{StaticResource SubtitleTextBlockStyle}`"`"`" /><TextBlock Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`" Margin=`"`"`"0,0,0,5`"`"`"><Run FontFamily=`"`"`"Segoe MDL2 Assets`"`"`">&#xECA7;</Run> <Span FontWeight=`"`"`"SemiBold`"`"`">%FancyRing%</Span></TextBlock><TextBlock Text=`"`"`"Ring: %Ring%`"`"`" Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`" /><TextBlock Text=`"`"`"Content: %Content%`"`"`" Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`" /><TextBlock Text=`"`"`"Telemetry settings notice`"`"`" Margin=`"`"`"0,20,0,10`"`"`" Style=`"`"`"{StaticResource SubtitleTextBlockStyle}`"`"`" /><TextBlock Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`">Windows Insider Program requires your diagnostic data collection settings to be set to <Span FontWeight=`"`"`"SemiBold`"`"`">Full</Span>. You can verify or modify your current settings in <Span FontWeight=`"`"`"SemiBold`"`"`">Diagnostics &amp; feedback</Span>.</TextBlock><Button Command=`"`"`"{StaticResource ActivateUriCommand}`"`"`" CommandParameter=`"`"`"ms-settings:privacy-feedback`"`"`" Margin=`"`"`"0,10,0,0`"`"`"><TextBlock Margin=`"`"`"5,0,5,0`"`"`">Open Diagnostics &amp; feedback</TextBlock></Button></StackPanel>" -Force  | out-null
+    New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\UI\Strings" -ItemType String -Name StickyXaml -Value "<StackPanel xmlns=`"`"`"http://schemas.microsoft.com/winfx/2006/xaml/presentation`"`"`"><TextBlock Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`">You are now receiving Windows Insider builds using the Windows Insider for Local Accounts Script $scriptVersion. To stop receiving Insider builds, use the script again and select reset. <Hyperlink NavigateUri=`"`"`"https://github.com/jackw2/windows-insider-local`"`"`" TextDecorations=`"`"`"None`"`"`">Download the script here</Hyperlink></TextBlock><TextBlock Text=`"`"`"Applied configuration`"`"`" Margin=`"`"`"0,20,0,10`"`"`" Style=`"`"`"{StaticResource SubtitleTextBlockStyle}`"`"`" /><TextBlock Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`" Margin=`"`"`"0,0,0,5`"`"`"><Run FontFamily=`"`"`"Segoe MDL2 Assets`"`"`">&#xECA7;</Run> <Span FontWeight=`"`"`"SemiBold`"`"`">%FancyRing%</Span></TextBlock><TextBlock Text=`"`"`"Ring: %Ring%`"`"`" Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`" /><TextBlock Text=`"`"`"Content: %Content%`"`"`" Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`" /><TextBlock Text=`"`"`"Telemetry settings notice`"`"`" Margin=`"`"`"0,20,0,10`"`"`" Style=`"`"`"{StaticResource SubtitleTextBlockStyle}`"`"`" /><TextBlock Style=`"`"`"{StaticResource BodyTextBlockStyle }`"`"`">Windows Insider Program requires your diagnostic data collection settings to be set to <Span FontWeight=`"`"`"SemiBold`"`"`">Full</Span>. You can verify or modify your current settings in <Span FontWeight=`"`"`"SemiBold`"`"`">Diagnostics &amp; feedback</Span>.</TextBlock><Button Command=`"`"`"{StaticResource ActivateUriCommand}`"`"`" CommandParameter=`"`"`"ms-settings:privacy-feedback`"`"`" Margin=`"`"`"0,10,0,0`"`"`"><TextBlock Margin=`"`"`"5,0,5,0`"`"`">Open Diagnostics &amp; feedback</TextBlock></Button></StackPanel>" -Force  | out-null
     New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\UI\Visibility" -ItemType DWord -Name UIHiddenElements -Value 65535 -Force -EA SilentlyContinue
     New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\UI\Visibility" -ItemType DWord -Name UIDisabledElements -Value 65535 -Force -EA SilentlyContinue
     New-Item -Path "Registry::HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsSelfHost\UI\Visibility" -ItemType DWord -Name UIServiceDrivenElementVisibility -Value 0 -Force -EA SilentlyContinue
