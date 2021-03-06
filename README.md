@@ -7,7 +7,7 @@ their Windows profile to a Microsoft Account.
 who are comfortable modifying the registry. You should not, in general, run
 admin-rights powershell scripts without sufficient knowledge of what they do. Use at your own risk.
 
-# How to use this script
+# How to use
 
 1. Download `launch.ps1`
 
